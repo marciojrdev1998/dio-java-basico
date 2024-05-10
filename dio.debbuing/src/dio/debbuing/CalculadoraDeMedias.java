@@ -1,3 +1,5 @@
+package dio.debbuing;
+
 import java.util.Scanner;
 
 public class CalculadoraDeMedias {
