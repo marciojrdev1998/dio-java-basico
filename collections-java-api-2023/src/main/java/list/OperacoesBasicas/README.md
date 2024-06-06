@@ -1,117 +1,117 @@
-# SET
+# MAP
 
 <p align="center">
-<img src="../../../../assets/image/set-interface-hierarchy.png" alt="Set interface hierarchy Java"><br>
+<img src="../../../../assets/image/map-interface-hierarchy.png" alt="Map interface hierarchy Java"><br>
 <a href="https://data-flair.training/blogs/collection-framework-in-java/">Hierarchy of Collection Framework in Java </a>
 </p>
 
-- A interface `Set` é uma coleção que não pode conter elementos duplicados.
-- Essa interface representa o conceito matemático de um conjunto e é usada para representar conjuntos, como um baralho de cartas.
-- A plataforma Java possui três implementações de `Set` de uso geral: `HashSet`, `TreeSet` e `LinkedHashSet`.
-- A interface `Set` não permite acesso aleatório a um elemento na coleção.
-- Para percorrer os elementos de um `Set`, você pode usar um iterador ou um loop foreach.
+- A interface `Map` é usada para mapear dados na forma de chaves e valores.
+- O `Map` do Java é um objeto que mapeia chaves para valores.
+- Um `Map` não pode conter chaves duplicadas: cada chave pode mapear no máximo um valor.
+- A plataforma Java possui três implementações gerais de `Map`: `HashMap`, `TreeMap` e `LinkedHashMap`.
+- As operações básicas do `Map` são: `put` (inserir ou atualizar), `get` (obter), `containsKey` (verificar se contém uma chave), `containsValue` (verificar se contém um valor), `size` (obter o tamanho) e `isEmpty` (verificar se está vazio).
 
-> ##### *HashSet*: O HashSet é uma implementação da interface Set que armazena os elementos em uma tabela hash. Ele não mantém uma ordem específica dos elementos. A principal vantagem do HashSet é que ele oferece um desempenho de busca muito eficiente, pois usa funções hash para indexar os elementos. No entanto, a ordem em que os elementos são adicionados pode não ser preservada ao percorrer o conjunto.
+> ##### *HashTable* é uma implementação antiga da interface Map no Java que é sincronizada e thread-safe, tornando-a adequada para uso em ambientes concorrentes. Ela não permite chaves ou valores nulos e os elementos não são mantidos em uma ordem específica.
 
-> ##### *TreeSet*: O TreeSet é uma implementação da interface Set que armazena os elementos em uma árvore binária balanceada. Isso significa que os elementos são armazenados em uma ordem classificada e são mantidos automaticamente em ordem crescente. A principal vantagem do TreeSet é que os elementos são sempre retornados na ordem classificada, o que facilita a obtenção de elementos em uma determinada ordem. No entanto, a busca e a inserção são um pouco mais lentas em comparação com o HashSet.
+> ##### *LinkedHashMap*, por outro lado, é uma implementação da interface Map que preserva a ordem de inserção dos elementos. Cada elemento possui referências ao próximo e ao anterior, formando uma lista encadeada. Isso permite que os elementos sejam iterados na ordem em que foram inseridos. Além disso, o LinkedHashMap também permite chaves ou valores nulos.
 
-> ##### *LinkedHashSet*: O LinkedHashSet é uma implementação da interface Set que mantém a ordem de inserção dos elementos, além de usar uma tabela hash para obter um bom desempenho de busca. Ele é semelhante ao HashSet, mas também mantém uma lista duplamente vinculada que preserva a ordem de inserção. Isso permite que os elementos sejam percorridos na ordem em que foram adicionados. O LinkedHashSet é útil quando você precisa manter a ordem de inserção dos elementos e também ter um bom desempenho de busca.
+> ##### *HashMap* é uma implementação da interface Map que não mantém uma ordem específica dos elementos. Ele armazena os elementos internamente usando uma função de hash para melhorar a eficiência das operações de pesquisa e acesso. O HashMap também permite chaves ou valores nulos.
 
 ### Referências:
 
 [1] "Collections in Java Tutorial." DigitalOcean Community. Disponível em: https://www.digitalocean.com/community/tutorials/collections-in-java-tutorial.
 
-[2] "Java™ Platform, Standard Edition 17 API Specification - Class Set." Oracle. Disponível em: https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html.
+[2] "Java™ Platform, Standard Edition 17 API Specification - Class Map." Oracle. Disponível em: https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html.
 
 ## Fixando os Conhecimentos
 
 Exercícios:
 
-1. Operações Básicas com Set
-2. Pesquisa em Set
-3. Ordenação nas Set
+1. Operações Básicas com Map
+2. Pesquisa em Map
+3. Ordenação nas Map
 
-## Operações Básicas com Set
-
-### 1. Conjunto de Convidados
-
-<p>Crie uma classe chamada "ConjuntoConvidados" que possui um conjunto de objetos do tipo "Convidado" como atributo. Cada convidado possui atributos como nome e código do convite. Implemente os seguintes métodos:
-
-- `adicionarConvidado(String nome, int codigoConvite)`: Adiciona um convidado ao conjunto.
-- `removerConvidadoPorCodigoConvite(int codigoConvite)`: Remove um convidado do conjunto com base no código do convite.
-- `contarConvidados()`: Conta o número total de convidados no Set.
-- `exibirConvidados()`: Exibe todos os convidados do conjunto.
-</p>
-
-### 2. Conjunto de Palavras Únicas
-
-<p>
-Crie uma classe chamada "ConjuntoPalavrasUnicas" que possui um conjunto de palavras únicas como atributo. Implemente os seguintes métodos:
-
-- `adicionarPalavra(String palavra)`: Adiciona uma palavra ao conjunto.
-- `removerPalavra(String palavra)`: Remove uma palavra do conjunto.
-- `verificarPalavra(String palavra)`: Verifica se uma palavra está presente no conjunto.
-- `exibirPalavrasUnicas()`: Exibe todas as palavras únicas do conjunto.
-</p>
-
-----
-
-## Pesquisa em Set
+## Operações Básicas com Map
 
 ### 1. Agenda de Contatos
 
 <p>
-Crie uma classe chamada "AgendaContatos" que possui um conjunto de objetos do tipo "Contato" como atributo. Cada contato possui atributos como nome e número de telefone. Implemente os seguintes métodos:
+Crie uma classe chamada "AgendaContatos" que utilize um Map para armazenar os contatos. Cada contato possui um nome como chave e um número de telefone como valor. Implemente os seguintes métodos:
 
-- `adicionarContato(String nome, int numero)`: Adiciona um contato à agenda.
-- `exibirContatos()`: Exibe todos os contatos da agenda.
-- `pesquisarPorNome(String nome)`: Pesquisa contatos pelo nome e retorna uma conjunto com os contatos encontrados.
-- `atualizarNumeroContato(String nome, int novoNumero)`: Atualiza o número de telefone de um contato específico.
+- `adicionarContato(String nome, Integer telefone)`: Adiciona um contato à agenda, associando o nome do contato ao número de telefone correspondente.
+- `removerContato(String nome)`: Remove um contato da agenda, dado o nome do contato.
+- `exibirContatos()`: Exibe todos os contatos da agenda, mostrando o nome e o número de telefone de cada contato.
+- `pesquisarPorNome(String nome)`: Pesquisa um contato pelo nome e retorna o número de telefone correspondente.
 </p>
 
-### 2. Lista de Tarefas
+### 2.  Dicionário
 
 <p>
-Crie uma classe chamada "ListaTarefas" que possui um conjunto de objetos do tipo "Tarefa" como atributo. Cada tarefa possui um atributo de descrição e um atributo booleano para indicar se a tarefa foi concluída ou não. Implemente os seguintes métodos:
+Crie uma classe chamada "Dicionario" que utilize um Map para armazenar palavras e suas respectivas definições. Implemente os seguintes métodos:
 
-- `adicionarTarefa(String descricao)`: Adiciona uma nova tarefa ao Set.
-- `removerTarefa(String descricao)`: Remove uma tarefa do Set de acordo com a descrição, se estiver presente. 
-- `exibirTarefas()`: Exibe todas as tarefas da lista de tarefas.
-- `contarTarefas()`: Conta o número total de tarefas na lista de tarefas.
-- `obterTarefasConcluidas()`: Retorna um Set com as tarefas concluídas.
-- `obterTarefasPendentes()`: Retorna um Set com as tarefas pendentes.
-- `marcarTarefaConcluida(String descricao)`: Marca uma tarefa como concluída de acordo com a descrição.
-- `marcarTarefaPendente(String descricao)`: Marca uma tarefa como pendente de acordo com a descrição.
-- `limparListaTarefas()`: Remove todas as tarefas da lista de tarefas.
+- `adicionarPalavra(String palavra, String definicao)`: Adiciona uma palavra e sua definição ao dicionário, associando a palavra à sua definição correspondente.
+- `removerPalavra(String palavra)`: Remove uma palavra do dicionário, dado o termo a ser removido.
+- `exibirPalavras()`: Exibe todas as palavras e suas definições do dicionário, mostrando cada palavra seguida de sua respectiva definição.
+- `pesquisarPorPalavra(String palavra)`: Pesquisa uma palavra no dicionário e retorna sua definição correspondente.
 </p>
 
 ---
 
-## Ordenação em Set
+## Pesquisa em Map
 
-### 1. Cadastro de Produtos
+### 1. Estoque de Produtos com Preço
 
 <p>
-Crie uma classe chamada "CadastroProdutos" que possui um conjunto de objetos do tipo "Produto" como atributo. Cada produto possui atributos como nome, cod, preço e quantidade. Implemente os seguintes métodos:
+Crie uma classe chamada "EstoqueProdutos" que utilize um Map para armazenar os produtos, suas quantidades em estoque e seus respectivos preços. Cada produto possui um código como chave e um objeto Produto como valor, contendo nome, quantidade e preço. Implemente os seguintes métodos:
 
-- `adicionarProduto(long cod, String nome, double preco, int quantidade)`: Adiciona um produto ao cadastro.
-- `exibirProdutosPorNome()`: Exibe todos os produtos do cadastro em ordem alfabética pelo nome.
-- `exibirProdutosPorPreco()`: Exibe todos os produtos do cadastro em ordem crescente de preço.
+- `adicionarProduto(long cod, String nome, int quantidade, double preco)`: Adiciona um produto ao estoque, juntamente com a quantidade disponível e o preço.
+- `exibirProdutos()`: Exibe todos os produtos, suas quantidades em estoque e preços.
+- `calcularValorTotalEstoque()`: Calcula e retorna o valor total do estoque, considerando a quantidade e o preço de cada produto.
+- `obterProdutoMaisCaro()`: Retorna o produto mais caro do estoque, ou seja, aquele com o maior preço.
+- `obterProdutoMaisBarato()`: Retorna o produto mais barato do estoque, ou seja, aquele com o menor preço.
+- `obterProdutoMaiorQuantidadeValorTotalNoEstoque()`: Retorna o produto que está em maior quantidade no estoque, considerando o valor total de cada produto (quantidade * preço).
 </p>
 
-### 2. Lista de Alunos
+### 2. Contagem de Palavras
 
 <p>
-Crie uma classe chamada "GerenciadorAlunos" que irá lidar com uma lista de alunos. Cada aluno terá atributos como nome, matrícula e nota. Implementaremos os seguintes métodos:
+Crie uma classe chamada "ContagemPalavras" que utilize um Map para armazenar as palavras e a quantidade de vezes que cada palavra aparece em um texto. Implemente os seguintes métodos:
 
-- `adicionarAluno(String nome, Long matricula, double media)`: Adiciona um aluno ao conjunto.
-- `removerAluno(long matricula)`: Remove um aluno ao conjunto a partir da matricula, se estiver presente.
-- `exibirAlunosPorNome()`: Exibe todos os alunos do conjunto em ordem alfabética pelo nome.
-- `exibirAlunosPorNota()`: Exibe todos os alunos do conjunto em ordem crescente de nota.
-- `exibirAlunos()`: Exibe todos os alunos do conjunto.
+- `adicionarPalavra(String palavra, Integer contagem)`: Adiciona uma palavra à contagem.
+- `removerPalavra(String palavra)`: Remove uma palavra da contagem, se estiver presente.
+- `exibirContagemPalavras()`: Exibe todas as palavras e suas respectivas contagens.
+- `encontrarPalavraMaisFrequente()`: Encontra a palavra mais frequente no texto e retorna a palavra e sua contagem.
 </p>
 
 ---
+
+## Ordenação nos Map
+
+### 1. Agenda de Eventos
+
+<p>
+Crie uma classe chamada "AgendaEventos" que utilize um `Map` para armazenar as datas e seus respectivos Eventos. Cada evento é representado por um objeto da classe "Evento", que possui atributos como nome do evento e o nome da atração. Implemente os seguintes métodos:
+
+- `adicionarEvento(LocalDate data, String nome, String atracao)`: Adiciona um evento à agenda.
+- `exibirAgenda()`: Exibe a agenda de eventos em ordem crescente de data.
+- `obterProximoEvento()`: Retorna o próximo evento que ocorrerá.
+</p>
+
+### 2. Livraria Online
+
+<p>
+Crie uma classe chamada "LivrariaOnline" que representa uma livraria online. Essa classe utiliza um Map para armazenar os livros disponíveis na livraria, utilizando o link da obra na Amazon Marketplace como chave e um objeto da classe "Livro" como valor. A classe "Livro" possui atributos como título, autor e preço. Através da classe "LivrariaOnline", implemente os seguintes métodos:
+
+- `adicionarLivro(String link, String titulo, String autor, private double preco)`: Adiciona um livro à livraria, utilizando o ISBN como chave no Map.
+- `removerLivro(String titulo)`: Remove um livro da livraria, dado o titulo do livro.
+- `exibirLivrosOrdenadosPorPreco()`: Exibe os livros da livraria em ordem crescente de preço.
+- `pesquisarLivrosPorAutor(String autor)`: Retorna uma lista de todos os livros escritos por um determinado autor.
+- `obterLivroMaisCaro()`: Retorna o livro mais caro disponível na livraria.
+- `exibirLivroMaisBarato()`: Retorna o livro mais barato disponível na livraria.
+</p>
+
+---
+
 ### Dúvidas e Suporte
 
 Caso você tenha alguma dúvida, problema ou sugestão, fique à vontade para abrir uma issue no repositório. Espero conseguir te ajudar! (:
